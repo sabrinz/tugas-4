@@ -1,0 +1,240 @@
+NAMA : M SABRI NURZAMAN
+KELAS : TIF23
+NIM :20230040147
+
+1 Tuliskan program yang meminta input dua bilangan dan menampilkan bilangan yang lebih besar.
+
+def bilangan_terbesar():
+  """Minta pengguna memasukkan dua bilangan dan tampilkan yang terbesar."""
+  bilangan1 = float(input("Masukkan bilangan pertama: "))
+  bilangan2 = float(input("Masukkan bilangan kedua: "))
+
+  if bilangan1 > bilangan2:
+    print(f"{bilangan1} adalah bilangan yang lebih besar.")
+  elif bilangan2 > bilangan1:
+    print(f"{bilangan2} adalah bilangan yang lebih besar.")
+  else:
+    print("Bilangan tersebut sama.")
+
+bilangan_terbesar()
+
+2 Tulisan program yang meminta input 3 buah bilangan dan tentukan bilangan mana yang lebih kecil
+
+def bilangan_terkecil():
+  """Minta pengguna memasukkan tiga bilangan dan tampilkan yang terkecil."""
+  bilangan1 = float(input("Masukkan bilangan pertama: "))
+  bilangan2 = float(input("Masukkan bilangan kedua: "))
+  bilangan3 = float(input("Masukkan bilangan ketiga: "))
+
+  terkecil = min(bilangan1, bilangan2, bilangan3)
+
+  if terkecil == bilangan1:
+    print(f"{bilangan1} adalah bilangan terkecil.")
+  elif terkecil == bilangan2:
+    print(f"{bilangan2} adalah bilangan terkecil.")
+  else:
+    print(f"{bilangan3} adalah bilangan terkecil.")
+
+bilangan_terkecil()
+
+3 Tuliskan program yang meminta input 3 buah bilangan dan tentukan bilangan mana yang lebih besar, 
+  2 bilangan lebih besar dari yang lain atau semua bilangan sama besar
+
+def bilangan_terbesar():
+  """Minta pengguna memasukkan tiga bilangan dan tentukan kondisi terbesar."""
+  bilangan1 = float(input("Masukkan bilangan pertama: "))
+  bilangan2 = float(input("Masukkan bilangan kedua: "))
+  bilangan3 = float(input("Masukkan bilangan ketiga: "))
+
+  # Periksa bilangan terbesar
+  terbesar = max(bilangan1, bilangan2, bilangan3)
+
+  if terbesar == bilangan1 and (bilangan2 == bilangan3 or bilangan1 == bilangan2):
+    print("Dua bilangan selain", terbesar, "sama besar.")
+  elif terbesar == bilangan2 and (bilangan1 == bilangan3 or bilangan2 == bilangan1):
+    print("Dua bilangan selain", terbesar, "sama besar.")
+  elif terbesar == bilangan3 and (bilangan1 == bilangan2 or bilangan3 == bilangan1):
+    print("Dua bilangan selain", terbesar, "sama besar.")
+  elif terbesar == bilangan1 and bilangan2 != bilangan3 and bilangan1 != bilangan2:
+    print(terbesar, "adalah bilangan terbesar.")
+  elif terbesar == bilangan2 and bilangan1 != bilangan3 and bilangan2 != bilangan1:
+    print(terbesar, "adalah bilangan terbesar.")
+  else:
+    print(terbesar, "adalah bilangan terbesar.")
+
+bilangan_terbesar()
+
+4  Tuliskan program untuk menentukan bilangan itu bilangan positif, negatif atau 0
+
+def cek_bilangan():
+  """Minta pengguna memasukkan bilangan dan tentukan jenisnya."""
+  bilangan = float(input("Masukkan bilangan: "))
+
+  if bilangan > 0:
+    print(f"{bilangan} adalah bilangan positif.")
+  elif bilangan < 0:
+    print(f"{bilangan} adalah bilangan negatif.")
+  else:
+    print(f"{bilangan} adalah nol.")
+
+cek_bilangan()
+
+5 Tuliskan program untuk menentukan bilangan itu bilangan (ganjil/genap) positif, negatif atau 0
+
+def cek_bilangan():
+  """Minta pengguna memasukkan bilangan dan tentukan kategorinya."""
+  bilangan = float(input("Masukkan bilangan: "))
+
+  if bilangan > 0:
+    if bilangan % 2 == 0:
+      print(f"{bilangan} adalah bilangan genap positif.")
+    else:
+      print(f"{bilangan} adalah bilangan ganjil positif.")
+  elif bilangan < 0:
+    if bilangan % 2 == 0:
+      print(f"{bilangan} adalah bilangan genap negatif.")
+    else:
+      print(f"{bilangan} adalah bilangan ganjil negatif.")
+  else:
+    print(f"{bilangan} adalah nol.")
+
+cek_bilangan()
+
+6 Buatlah program yang menghitung luas dan keliling segitiga berdasarkan panjang sisi-sisinya.(Gunakan Rumus Heron)
+
+def hitung_segitiga(a, b, c):
+  """Menghitung luas dan keliling segitiga dengan Rumus Heron."""
+
+  # Menghitung semi-keliling
+  s = (a + b + c) / 2
+
+  # Menghitung luas
+  luas = math.sqrt(s * (s - a) * (s - b) * (s - c))
+
+  # Menghitung keliling
+  keliling = a + b + c
+
+  print(f"Luas segitiga: {luas:.2f}")
+  print(f"Keliling segitiga: {keliling:.2f}")
+
+# Meminta masukan panjang sisi
+a = float(input("Masukkan panjang sisi a: "))
+b = float(input("Masukkan panjang sisi b: "))
+c = float(input("Masukkan panjang sisi c: "))
+
+# Menjalankan fungsi
+hitung_segitiga(a, b, c)
+
+7 Program untuk mengonversi suhu dari Celsius ke Fahrenheit atau sebaliknya, sesuai dengan input pengguna.
+
+def konversi_suhu():
+  """Menyediakan konversi suhu antara Celsius dan Fahrenheit."""
+
+  # Meminta pilihan konversi
+  while True:
+    pilihan = input("Masukkan pilihan konversi (C/F): ").upper()
+    if pilihan in ("C", "F"):
+      break
+    print("Pilihan tidak valid. Masukkan C untuk Celsius atau F untuk Fahrenheit.")
+
+  # Meminta masukan suhu
+  suhu = float(input("Masukkan suhu: "))
+
+  # Melakukan konversi
+  if pilihan == "C":
+    fahrenheit = (suhu * 9/5) + 32
+    print(f"{suhu} derajat Celsius sama dengan {fahrenheit:.2f} derajat Fahrenheit.")
+  else:
+    celsius = (suhu - 32) * 5/9
+    print(f"{suhu} derajat Fahrenheit sama dengan {celsius:.2f} derajat Celsius.")
+
+# Menjalankan fungsi
+konversi_suhu()
+
+8 Program yang mensimulasikan permainan batu-gunting-kertas antara dua pemain dan menentukan pemenangnya.
+ import random
+
+def batu_gunting_kertas():
+  """Mensimulasikan permainan batu-gunting-kertas."""
+
+  # Pilihan yang tersedia
+  pilihan = ["batu", "gunting", "kertas"]
+
+  # Mendapatkan pilihan pemain 1
+  while True:
+    pilihan_pemain1 = input("Masukkan pilihan Anda (batu/gunting/kertas): ").lower()
+    if pilihan_pemain1 in pilihan:
+      break
+    print("Pilihan tidak valid. Masukkan salah satu dari: batu, gunting, kertas.")
+
+  # Memilih pilihan acak untuk pemain 2
+  pilihan_pemain2 = random.choice(pilihan)
+
+  # Menentukan pemenang
+  if pilihan_pemain1 == pilihan_pemain2:
+    print("Seri!")
+  elif (pilihan_pemain1 == "batu" and pilihan_pemain2 == "gunting") or \
+       (pilihan_pemain1 == "gunting" and pilihan_pemain2 == "kertas") or \
+       (pilihan_pemain1 == "kertas" and pilihan_pemain2 == "batu"):
+    print("Pemain 1 menang!")
+  else:
+    print("Pemain 2 menang!")
+
+  # Menampilkan pilihan kedua pemain
+  print(f"Pemain 1 memilih: {pilihan_pemain1}")
+  print(f"Pemain 2 memilih: {pilihan_pemain2}")
+
+# Menjalankan permainan
+batu_gunting_kertas()
+
+9 Buatlah Perhitungan IPK untuk semester ini berdasarkan nilai yang di input
+Mata kuliah semster ini adalah Algoritma, Perancangan Objek, Kalkulus, Etika Profesi, Databases, dan Englis 1
+referensi : https://www.ekrut.com/media/cara-menghitung-ipk
+
+def hitung_ipk():
+  """Menghitung IPK semester ini berdasarkan nilai yang diinput."""
+
+  # Daftar mata kuliah
+  mata_kuliah = ["Algoritma", "Perancangan Objek", "Kalkulus", "Etika Profesi", "Databases", "Inggris 1"]
+
+  # Mendapatkan nilai untuk setiap mata kuliah
+  nilais = []
+  for matkul in mata_kuliah:
+    nilai = float(input(f"Masukkan nilai {matkul}: "))
+    nilais.append(nilai)
+
+  # Menghitung SKS dan total SKS
+  sks = [3, 3, 3, 2, 3, 3]
+  total_sks = sum(sks)
+
+  # Menghitung total nilai mutu
+  total_nilai_mutu = 0
+  for i in range(len(mata_kuliah)):
+    nilai_mutu = nilai_huruf(nilais[i]) * sks[i]
+    total_nilai_mutu += nilai_mutu
+
+  # Menghitung IPK
+  ipk = total_nilai_mutu / total_sks
+
+  # Menampilkan hasil
+  print(f"IPK semester ini: {ipk:.2f}")
+
+def nilai_huruf(nilai):
+  """Menentukan nilai huruf berdasarkan nilai numerik."""
+  if nilai >= 85:
+    return 4.0
+  elif nilai >= 80:
+    return 3.7
+  elif nilai >= 75:
+    return 3.3
+  elif nilai >= 70:
+    return 3.0
+  elif nilai >= 65:
+    return 2.7
+  elif nilai >= 60:
+    return 2.3
+  else:
+    return 0.0
+
+# Menjalankan program
+hitung_ipk()
